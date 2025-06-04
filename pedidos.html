@@ -3,24 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <title>Cardápio Digital</title>
+  <style>
+    body { font-family: Arial; background: #f6f6f6; padding: 20px; }
+    h1 { color: #333; }
+    .item { margin-bottom: 12px; background: #fff; padding: 10px; border-radius: 6px; box-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+    button { padding: 6px 12px; border: none; background: #2b7de9; color: white; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #195ec8; }
+  </style>
 </head>
 <body>
+
   <h1>🍽️ Cardápio - Mesa 5</h1>
 
-  <div>
-    <h3>P Carne - R$15</h3>
-    <button onclick="enviarPedido('P Carne', 15)">Pedir</button>
-  </div>
+  <div class="item"><strong>P Fabuloso CP/QC</strong> – R$22 <button onclick="enviarPedido('P Fabuloso CP/QC', 22)">Pedir</button></div>
+  <div class="item"><strong>P Carne</strong> – R$15 <button onclick="enviarPedido('P Carne', 15)">Pedir</button></div>
+  <div class="item"><strong>P Presunto/Queijo</strong> – R$15 <button onclick="enviarPedido('P Presunto/Queijo', 15)">Pedir</button></div>
+  <div class="item"><strong>P Frango</strong> – R$15 <button onclick="enviarPedido('P Frango', 15)">Pedir</button></div>
+  <div class="item"><strong>P Queijo</strong> – R$15 <button onclick="enviarPedido('P Queijo', 15)">Pedir</button></div>
+  <div class="item"><strong>P Calabresa</strong> – R$15 <button onclick="enviarPedido('P Calabresa', 15)">Pedir</button></div>
+  <div class="item"><strong>P Frango/Requeijão</strong> – R$18 <button onclick="enviarPedido('P Frango/Requeijão', 18)">Pedir</button></div>
+  <div class="item"><strong>P Queijo/Goiabada</strong> – R$12 <button onclick="enviarPedido('P Queijo/Goiabada', 12)">Pedir</button></div>
+  <div class="item"><strong>P Chocolate Preto</strong> – R$12 <button onclick="enviarPedido('P Chocolate Preto', 12)">Pedir</button></div>
+  <div class="item"><strong>P Carne/Cheddar</strong> – R$18 <button onclick="enviarPedido('P Carne/Cheddar', 18)">Pedir</button></div>
 
-  <div>
-    <h3>P Frango/Requeijão - R$18</h3>
-    <button onclick="enviarPedido('P Frango/Requeijão', 18)">Pedir</button>
-  </div>
+  <div class="item"><strong>Bolo</strong> – R$6 <button onclick="enviarPedido('Bolo', 6)">Pedir</button></div>
+  <div class="item"><strong>Nega Maluca</strong> – R$8 <button onclick="enviarPedido('Nega Maluca', 8)">Pedir</button></div>
+  <div class="item"><strong>Enrolado</strong> – R$10 <button onclick="enviarPedido('Enrolado', 10)">Pedir</button></div>
+  <div class="item"><strong>Sanduíche Frango</strong> – R$6 <button onclick="enviarPedido('Sanduíche Frango', 6)">Pedir</button></div>
+  <div class="item"><strong>Salada de Fruta</strong> – R$12 <button onclick="enviarPedido('Salada de Fruta', 12)">Pedir</button></div>
+
+  <div class="item"><strong>Suco Laranja</strong> – R$12 <button onclick="enviarPedido('Suco Laranja', 12)">Pedir</button></div>
+  <div class="item"><strong>Suco Limão</strong> – R$8 <button onclick="enviarPedido('Suco Limão', 8)">Pedir</button></div>
+  <div class="item"><strong>Suco Maracujá</strong> – R$10 <button onclick="enviarPedido('Suco Maracujá', 10)">Pedir</button></div>
+  <div class="item"><strong>Suco Uva</strong> – R$10 <button onclick="enviarPedido('Suco Uva', 10)">Pedir</button></div>
+  <div class="item"><strong>Água c/ gás</strong> – R$4 <button onclick="enviarPedido('Água com gás', 4)">Pedir</button></div>
+  <div class="item"><strong>Água s/ gás</strong> – R$4 <button onclick="enviarPedido('Água sem gás', 4)">Pedir</button></div>
+  <div class="item"><strong>Chocolate Quente</strong> – R$12 <button onclick="enviarPedido('Chocolate Quente', 12)">Pedir</button></div>
 
   <script>
     function enviarPedido(produto, preco) {
-      const url = "https://script.google.com/macros/s/AKfycbzGDxLIPP8od-FlJWrd8ay-eBCQOWzKsbY-ZZeGPRATA9JVblECLJZN4uh9eu-qyZU/exec";
-      const mesa = 5; // pode vir da URL se quiser
+      const url = "https://script.google.com/macros/s/SEU_ID_DO_SCRIPT/exec"; // <<< SUBSTITUA AQUI
+      const mesa = 5; // ou pegue da URL
       const nome = prompt("Digite seu nome:");
 
       const params = `?mesa=${mesa}&produto=${encodeURIComponent(produto)}&quantidade=1&preco=${preco}&nome=${encodeURIComponent(nome)}`;
@@ -31,5 +54,6 @@
         .catch(() => alert("❌ Erro ao enviar pedido."));
     }
   </script>
+
 </body>
 </html>
