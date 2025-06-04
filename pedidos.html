@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cardápio Digital</title>
+</head>
+<body>
+  <h1>🍽️ Cardápio - Mesa 5</h1>
+
+  <div>
+    <h3>P Carne - R$15</h3>
+    <button onclick="enviarPedido('P Carne', 15)">Pedir</button>
+  </div>
+
+  <div>
+    <h3>P Frango/Requeijão - R$18</h3>
+    <button onclick="enviarPedido('P Frango/Requeijão', 18)">Pedir</button>
+  </div>
+
+  <script>
+    function enviarPedido(produto, preco) {
+      const url = "https://script.google.com/macros/s/AKfycbzGDxLIPP8od-FlJWrd8ay-eBCQOWzKsbY-ZZeGPRATA9JVblECLJZN4uh9eu-qyZU/exec";
+      const mesa = 5; // pode vir da URL se quiser
+      const nome = prompt("Digite seu nome:");
+
+      const params = `?mesa=${mesa}&produto=${encodeURIComponent(produto)}&quantidade=1&preco=${preco}&nome=${encodeURIComponent(nome)}`;
+
+      fetch(url + params)
+        .then(res => res.text())
+        .then(() => alert("✅ Pedido enviado com sucesso!"))
+        .catch(() => alert("❌ Erro ao enviar pedido."));
+    }
+  </script>
+</body>
+</html>
